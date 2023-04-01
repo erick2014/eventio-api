@@ -1,5 +1,11 @@
-export const typeDefs = `#graphql
-    type User{
+export const typeDefs = `
+    input UserInputParams {
+        firstName: String
+        lastName: String
+        email: String
+    }
+
+    type User {
         id: ID
         firstName: String
         lastName: String
@@ -9,5 +15,9 @@ export const typeDefs = `#graphql
 
     type Query {
         users: [User]
+    }
+
+    type Mutation {
+        login(user: UserInputParams): User
     }
 `;
