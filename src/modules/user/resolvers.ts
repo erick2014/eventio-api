@@ -1,4 +1,6 @@
-const fakeUsers = [
+import { UserInput, User } from "./types";
+
+const fakeUsers: User[] = [
   {
     id: "1",
     firstName: "erick",
@@ -8,20 +10,15 @@ const fakeUsers = [
   },
 ];
 
-type User = {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
-
 export const resolvers = {
   Query: {
     users: () => fakeUsers,
   },
   Mutation: {
-    login: (parent: any, args: any) => {
+    login: (parent: any, args: { user: UserInput }) => {
       console.log("user received ? ", args);
-      fakeUsers.push(args.user);
+      const newRecord = { ...args.user, id: "1", isLoggedIn: true };
+      fakeUsers.push(newRecord);
     },
   },
 };
