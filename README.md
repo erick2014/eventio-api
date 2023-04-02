@@ -1,6 +1,8 @@
 # Install all the dependencies
 
+```
 npm install
+```
 
 # Setup the database using docker
 
@@ -13,4 +15,6 @@ docker run -d -p 2717:27017 -v ~/Documents/eventio-api-db:/data/db --name mymong
 
 # Run the project
 
+```
 npm run start
+```
