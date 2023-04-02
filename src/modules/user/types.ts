@@ -6,4 +6,7 @@ export type User = {
   isLoggedIn: boolean;
 };
 
-export type UserInput = Omit<User, "isLoggedIn" | "id">;
+type SignUpUser = User & { password: string };
+
+export type LoginInput = { email: string; password: string };
+export type SignUpInput = Omit<SignUpUser, "id" | "isLoggedIn">;
